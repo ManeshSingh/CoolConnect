@@ -24,3 +24,9 @@ def create_streamlit_app(llm, portfolio, clean_text):
                 st.code(email, language='markdown')
         except Exception as e:
             st.error(f"An Error Occurred: {e}")
+            
+if _name_ == "_main_":
+    chain = Chain()
+    portfolio = Portfolio()
+    st.set_page_config(layout="wide", page_title="CoolConnect | Cold Email Generator", page_icon="📧")
+    create_streamlit_app(chain, portfolio, clean_text)
