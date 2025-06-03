@@ -7,9 +7,9 @@ from utils import clean_text
 
 
 def create_streamlit_app(llm, portfolio, clean_text):
-    st.title("📧 CoolConnect - Cold Email Generator Tool 📧")
-    url_input = st.text_input("Enter a URL:", value="", placeholder="🔗 URL Here...")
-    submit_button = st.button("Create mail 🚀")
+    st.title("📧 Cold Email Generator")
+    url_input = st.text_input("Enter a URL:", value="https://jobs.nike.com/job/R-33460")
+    submit_button = st.button("Submit")
 
     if submit_button:
         try:
@@ -24,3 +24,10 @@ def create_streamlit_app(llm, portfolio, clean_text):
                 st.code(email, language='markdown')
         except Exception as e:
             st.error(f"An Error Occurred: {e}")
+
+
+if __name__ == "__main__":
+    chain = Chain()
+    portfolio = Portfolio()
+    st.set_page_config(layout="wide", page_title="Cold Email Generator", page_icon="📧")
+    create_streamlit_app(chain, portfolio, clean_text)
